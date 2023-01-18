@@ -1,21 +1,23 @@
 const fs = require('fs')
 let filepath = process.platform === "linux" ? "/dev/stdin" : "./input.txt"
-let input = fs.readFileSync(filepath).toString().trim().split('\n');
+let input = fs.readFileSync(filepath).toString().trim()
 //trim함수는 앞과 뒤쪽의 공백을 제거하여 없애준다.
 input[0] = parseInt(input[0])
+//처음 받는 수 int형으로 change
 let cards = input[1].split(' ').map(Number)
+//cards들도 넘버형으로 change
 
+// input[0] = 4
+// input[1] = 1 5 6 7 
 const dp = new Array(input[0]+1).fill(0)
 
 for(let i = 1; i<=input[0]; i++){
-    for(let j =1; j<=i; j++){
+    for(let j = 1; j<=i; j++){
         dp[i] = Math.max(dp[i], dp[i-j]+cards[j-1])
+        console.log(dp[i])
     }
 }
 console.log(dp[input[0]])
-
-
-
 
 //지금 해야되는게 input[1] = 1 5 6 7 이라는 값임 근데 이게말이되나?
 
