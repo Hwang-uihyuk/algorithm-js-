@@ -1,8 +1,5 @@
 function solution(absolutes, signs) {
-    
-    for(let i = 0; i<signs.length; i++){
-        if(signs[i] === false) absolutes[i] = -absolutes[i]
-    }
-    
-    return absolutes.reduce((a,c) => a+c);
+    let answer = 
+        absolutes.reduce((acc, curr, i) => acc + (curr * (signs[i]===true ? 1 : -1)) ,0)
+    return answer;
 }
