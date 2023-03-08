@@ -1,26 +1,12 @@
 function solution(skill, skill_trees) {
-    let res = 0
+        const skill_regex = new RegExp(`[^${skill}]`, 'g');
     
-    let filteredTrees = skill_trees.map(tree => 
-        tree.split("").filter(ele => skill.includes(ele))
-    )
+       console.log( skill_trees.map(tree => tree.replace(skill_regex, '')))
     
-    for(let i = 0; i<filteredTrees.length; i++){
-        let isVal = true;
-        for(let j = 0; j <filteredTrees[i].length; j++){
-            if(skill[j] !==filteredTrees[i][j]){
-                isVal = false;
-                break
-            }
-        }
-        if(isVal) res ++
-    }
-    return res
-//     //skill의 요소들이 있는지 확인
-//     let filteredTrees = skill_trees.map(tree => {
-//         return tree.split("").filter(ele => skill.includes(ele))
-//     });
+    skill_trees = skill_trees.map(tree => tree.replace(skill_regex, ''))
+      	.filter(tree => !skill.indexOf(tree))
     
-//     console.log(filteredTrees)
-//     return skill;
+    console.log(skill_trees)
+    
+    return skill_trees.length;
 }
