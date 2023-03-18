@@ -1,7 +1,6 @@
 function solution(n)
 {
-    let answer = n.toString().split('').map(a => +a).reduce((a,c)=>a+c)
-    
+    n = String(n).split('').map(v=>+v).reduce((acc,curr) => acc +curr)
 
-    return answer;
+    return n;
 }
