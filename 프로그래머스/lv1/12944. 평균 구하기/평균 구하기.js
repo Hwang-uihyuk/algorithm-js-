@@ -1,4 +1,3 @@
 function solution(arr) {
-    let answer = arr.reduce((a,c)=> a+c)/arr.length;
-    return answer;
+    return arr.reduce((acc,curr) => acc+curr)/arr.length;;
 }
