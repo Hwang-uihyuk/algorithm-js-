@@ -1,11 +1,22 @@
 function solution(strings, n) {
-     strings.sort((a,b) => {
-        if(a[n] < b[n]) return -1 // 음수면 오름차순
-        else if(a[n] > b[n]) return 1
-        else if(a > b) return 1
-        else if(a < b) return -1
+    strings.sort((a,b) => {
+        console.log('a',a)
+        console.log('b',b)
+        // if(a[n] < b[n])
+        if(a[n] < b[n]) return -1
+            else if(a[n] > b[n]) return 1
+            else if(a < b) return -1
+            else if( a > b) return 1
     })
-    return strings;
+    return strings
+    
+    
+    
+    
+    //  let arr = [3,5,4]
+    //  arr.sort((a,b) => a-b)
+    // console.log(arr)
+    // return strings;
 }
 
 // function solution(a,b){
