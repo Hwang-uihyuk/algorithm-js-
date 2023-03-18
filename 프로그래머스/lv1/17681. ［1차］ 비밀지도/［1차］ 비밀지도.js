@@ -1,34 +1,40 @@
 function solution(n, arr1, arr2) {
-    // arr1 = arr1.map(v => v.toString(2)).join(' ').replace(/1/g,"#")
-    arr1 = arr1.map(v =>v.toString(2))
-    for(let i = 0; i<arr1.length; i++){
-    while(n != arr1[i].length){
-        arr1[i] = '0' + arr1[i]
-    }
-    }
-   // arr2 = arr2.map(v => v.toString(2)).join(' ').replace(/1/g,'#')
-    arr2 = arr2.map(v => v.toString(2))
-for(let i = 0; i<arr2.length; i++){
-    while(n != arr2[i].length){
-        arr2[i] = '0' + arr2[i]
-    }
-    }
-    
-    arr1 = arr1.map(v => v.replace(/1/g,'#'))
-    arr2 = arr2.map(v => v.replace(/1/g, '#'))
-    
-    let res = []
-    for(let i = 0 ; i <n; i++){
-        let answer= ''
-        for(let j = 0; j<n; j++){
-        if(arr1[i][j] === '#' || arr2[i][j] === '#'){
-            answer += "#"
+    var answer = [];
+    let newArr1 = [];
+    let newArr2 = []
+    // 2진수로 변환하며 빈 부분은 0으로 채움
+    for (let i=0; i<n; i++){
+        let tempArr1 = [];
+        let str1 = arr1[i].toString(2);
+        for (let j=0; j<n-str1.length; j++){
+            tempArr1.push(0);
         }
-        else 
-            answer += " "
+        for (let j=0; j<str1.length; j++){
+            tempArr1.push(str1[j]);
         }
-        res.push(answer)
+        newArr1.push(tempArr1);
+        let tempArr2 = [];
+        let str2 = arr2[i].toString(2);
+        for (let j=0; j<n-str2.length; j++){
+            tempArr2.push(0);
+        }
+        for (let j=0; j<str2.length; j++){
+            tempArr2.push(str2[j]);
+        }
+        newArr2.push(tempArr2);
     }
-    console.log(res)
-    return res;
+    // 겹쳤을 때 1인 부분은 # 0인 부분은 공백으로 둠
+    for (let i=0; i<n; i++){
+        let str = ''
+        for (let j=0; j<n; j++){
+            if(newArr1[i][j] === '1' || newArr2[i][j] === '1'){
+                str+='#';
+            }else{
+                str+=' ';
+            }
+        }
+        answer.push(str);
+    }
+    console.log(newArr1, newArr2, answer);
+    return answer;
 }
