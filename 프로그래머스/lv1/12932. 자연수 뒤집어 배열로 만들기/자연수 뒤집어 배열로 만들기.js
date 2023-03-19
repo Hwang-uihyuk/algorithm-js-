@@ -1,4 +1,5 @@
 function solution(n) {
-    
-    return (n+"").split('').reverse().map(a=> parseInt(a));
+    var answer = [];
+    answer = String(n).split('').reverse().map(v => +v)
+    return answer;
 }
