@@ -1,11 +1,12 @@
 function solution(s){
     s = s.toLowerCase()
-    let cntp = 0
-    let cnty = 0
-    for(let i = 0 ; i<s.length; i++){
-         if(s[i] === "p") cntp ++
-         else if(s[i] === "y") cnty ++
+    let Pcnt = 0
+    let Ycnt = 0
+    for(let x of s){
+        if(x ==='p') Pcnt++
+        else if(x ==='y') Ycnt++
     }
-    
-    return (cntp === cnty ? true : false);
+    console.log(Pcnt,Ycnt)
+    if(Pcnt === 0 && Ycnt ===0) return true
+    return Ycnt===Pcnt? true : false;
 }
