@@ -1,5 +1,10 @@
 function solution(x) {
-    let res = String(x).split('').map(v=> +v).reduce((a,c)=> a+c)
-    
-    return (x%res===0) ? true : false;
+    var answer = true;
+ let val = String(x).split('').map(a=>+a).reduce((a,b)=> a+parseInt(b))
+    if(Number(x) % val === 0){
+        return answer;
+    }
+        
+    else
+        return false
 }
