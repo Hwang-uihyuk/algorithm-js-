@@ -1,6 +1,6 @@
 function solution(n) {
-    for(let i =1; i<n; i++){
-        if(n%i === 1)
-            return i
+    for(let i = 2 ; i<n; i++){
+        if(n%i === 1) return i
     }
+    return answer;
 }
