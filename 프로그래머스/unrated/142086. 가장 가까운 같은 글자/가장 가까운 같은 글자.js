@@ -1,18 +1,15 @@
 function solution(s) {
-    let answer = []
-    let stack = []
+    var answer = [];
+    let res = []
     for(let i=0; i<s.length; i++){
-        if(stack.includes(s[i]) === false){
-            stack.push(s[i])
-            answer.push(-1)      
-            
-        }
-        else if(stack.includes(s[i]) === true){
-            let res = s.indexOf(s[i],i) - s.slice(0,i).lastIndexOf(s[i])
-            answer.push(res)
-            }
-        
+        if(!answer.includes(s[i])){
+            answer.push(s[i])
+            res.push(-1)
+        } 
+        else{
+          res.push(i - answer.lastIndexOf(s[i]))
+          answer.push(s[i])
+        } 
     }
-    
-    return answer;
+    return res;
 }
