@@ -16,9 +16,16 @@
 // }
 
 //공백문자가 연속해서 나올 수 있다.
+// function solution(s){
+//     s = s.toLowerCase().split(' ')
+//     console.log(s)
+//     s = s.map(v => v ==='' ? '' : v[0].toUpperCase()+v.slice(1,v.length) ).join(' ')
+//     return s
+// }
+
+
 function solution(s){
-    s = s.toLowerCase().split(' ')
-    console.log(s)
-    s = s.map(v => v ==='' ? '' : v[0].toUpperCase()+v.slice(1,v.length) ).join(' ')
-    return s
+    s = s.toLowerCase()
+    s = s.split(' ').map(v => v ==="" ? '' : v[0].toUpperCase() + v.slice(1,v.length ))
+    return s.join(' ')
 }
