@@ -24,8 +24,19 @@
 // }
 
 
-function solution(s){
+// function solution(s){
+//     s = s.toLowerCase()
+//     s = s.split(' ').map(v => v[0].toUpperCase() + v.slice(1, v.length))
+//     console.log(s)
+//     const test = ["a"]
+//     console.log(test[0][0].toUpperCase() + test[0].slice(1)) //이게출력이안됨 ㅇㅇ indexOut이 나옴
+//     //그니가 ""이거에서는 v.slice()가 안된다는거지 indexOut이 나옴 ㅇㅇ
+    
+//     return s.join(' ')
+// }
+
+function solution(s){    
     s = s.toLowerCase()
-    s = s.split(' ').map(v => v ==="" ? '' : v[0].toUpperCase() + v.slice(1,v.length ))
+    s = s.split(' ').map(v => v === '' ? '' : v[0].toUpperCase() + v.slice(1))
     return s.join(' ')
 }
