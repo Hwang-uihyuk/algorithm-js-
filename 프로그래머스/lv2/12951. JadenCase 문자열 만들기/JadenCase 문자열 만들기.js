@@ -35,8 +35,26 @@
 //     return s.join(' ')
 // }
 
-function solution(s){    
-    s = s.toLowerCase()
-    s = s.split(' ').map(v => v === '' ? '' : v[0].toUpperCase() + v.slice(1))
+// function solution(s){    
+//     s = s.toLowerCase()
+//     console.log(s.split(' '))
+//     s = s.split(' ').map(v => v === '' ? '' : v[0].toUpperCase() + v.slice(1))
+//     // s = s.split(' ').map(v => v[0].toUpperCase() + v.slice(1))
+//     // 어차피 공백나와도 toUpperCase 해줘도 상관없지않음?
+//     console.log([''.toUpperCase()] === [''.toLowerCase()]) //false 이고
+//     console.log(['123'] === ['123'])
+//     console.log(''.toUpperCase() === ''.toLowerCase()) //true이다.
+    
+//     const test = ''
+//     console.log(test[0].toLowerCase())
+//     // console.log(test[0].toLowerCase() + test.slice(1))
+//     return s.join(' ')
+
+// }
+
+function solution(s){
+    s = s.toLowerCase().split(' ')
+    s = s.map(v => v==='' ? '' :v[0].toUpperCase() + v.slice(1))
+    
     return s.join(' ')
 }
