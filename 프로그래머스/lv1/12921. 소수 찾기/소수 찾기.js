@@ -1,16 +1,41 @@
-function solution(n) {
-    let res = 0;   
-    for(let i =2; i<=n; i++){
-        let cnt = 0;
-        
-        
-        //n까지 숫자를 돌려야됨 ㅇㅇ
-        //소수는 자기자신을 포함해서 약수가 두개여야함 
-        for(let j=2; j<=Math.floor(Math.sqrt(i)); j++){
-            if(i % j === 0){ cnt++ 
-                            break}
+// function solution(n) {
+//     let arr = new Array(n+1).fill(true).fill(false,0,2)
+//     console.log(arr)
+//     for(let i = 2; i*i <= n; i++){
+//         if(arr[i])
+//         for(let j = i * i; j<=n; j=j+i){
+//             console.log(j)
+//             arr[j] = false
+//         }
+            
+//     }
+//     return arr;
+// }
+
+
+// function solution(n){
+//     let arr = new Array(n+1).fill(true).fill(false,0,2)
+//     console.log(arr)
+//     for(let i = 2; i*i <= n; i++){
+//         if(arr[i]){
+//             for(let j = i * i; j <=n; j +=i){
+//                 arr[j] = false;
+//             }
+//         }
+//     }
+//     return arr.filter(v => v===true).length;
+// }
+
+function solution(n){
+    let arr = new Array(n+1).fill(true).fill(false,0,2)
+    
+    for(let i = 2; i * i <= n; i++){
+        if(arr[i] === true){
+            for(let j = i * i; j <= n; j = j+i){
+                arr[j] = false
+            }
         }
-        if(cnt === 0) res++
     }
-    return res;
+    arr = arr.filter(v => v === true)
+    return arr.length
 }
