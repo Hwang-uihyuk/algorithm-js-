@@ -56,18 +56,33 @@
 // }
 
 
+// function solution(n){
+//     //1부터 n까지 소수를 구해래ㅏ
+//     let arr = new Array(n+1).fill(true).fill(false,0,2)
+    
+//     for(let i = 2; i * i <= n; i++){
+        
+//         for(let j = i * i ; j <=n; j = j + i){
+//             if(arr[i]) {
+//             arr[j] = false
+//         }
+//         }
+//     }
+//     //true인게 소수인거고 false는 소수가 아닌거임
+//     return arr.filter((v) => v === true).length
+// }
+
+
 function solution(n){
-    //1부터 n까지 소수를 구해래ㅏ
     let arr = new Array(n+1).fill(true).fill(false,0,2)
     
-    for(let i = 2; i * i <= n; i++){
-        
-        for(let j = i * i ; j <=n; j = j + i){
-            if(arr[i]) {
-            arr[j] = false
-        }
+    for(let i = 2; i * i <=n; i++){
+        if(arr[i]){
+            for(let j = i * i ; j<=n; j = j+i){
+                arr[j] = false
+            }
         }
     }
-    //true인게 소수인거고 false는 소수가 아닌거임
-    return arr.filter((v) => v === true).length
+    
+    return arr.filter(v => v === true).length
 }
