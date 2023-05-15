@@ -38,17 +38,36 @@
 //     return cnt;
 // }
 
-function solution(numbers,target){
-    let cnt = 0
+// function solution(numbers,target){
+//     let cnt = 0
     
-    const dfs = (sum, depth) => {
-        if(depth === numbers.length){
+//     const dfs = (sum, depth) => {
+//         if(depth === numbers.length){
+//             if(target === sum) cnt++
+//             return
+//         }
+//         dfs(sum + numbers[depth], depth + 1)
+//         dfs(sum - numbers[depth], depth + 1)
+//     }
+//     dfs(0,0)
+//     return cnt
+// }
+
+
+function solution(numbers, target){
+    let cnt = 0;
+    function DFS(L, sum){
+        if(L === numbers.length){
             if(target === sum) cnt++
             return
+                               
         }
-        dfs(sum + numbers[depth], depth + 1)
-        dfs(sum - numbers[depth], depth + 1)
+        else{
+            DFS(L+1, sum + numbers[L])
+            DFS(L+1, sum - numbers[L])
+        }
     }
-    dfs(0,0)
-    return cnt
+    
+    DFS(0,0)
+    return cnt;
 }
