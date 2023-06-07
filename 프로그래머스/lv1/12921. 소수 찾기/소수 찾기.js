@@ -88,13 +88,58 @@
 // }
 
 
+// function solution(n){
+//     let arr = new Array(n+1).fill(true).fill(false,0,2)
+//     for(let i = 2; i * i <= n; i++){
+//         if(arr[i])
+//             for(let j = i * i; j <= n; j = j + i){
+//                 arr[j] = false
+//             }
+//     }
+//     return arr.filter(v => v=== true).length
+// }
+
+
+// function solution(n){
+//     let arr = new Array(n).fill(true)
+    
+//     for(let i = 2; i * i <=n; i++){
+//         for(let j = i * i ; j <= n; j = j + i){
+//             if(arr[j] === 0 ) 
+//                 arr[j] = 1
+//         }            
+//     }
+// }
+
+// function solution(n){
+//     //1부터 n까지 소수를 구해래ㅏ
+//     let arr = new Array(n+1).fill(true).fill(false,0,2)
+    
+//     for(let i = 2; i * i <= n; i++){
+        
+//         for(let j = i * i ; j <=n; j = j + i){
+//             if(arr[i]) {
+//             arr[j] = false
+//         }
+//         }
+//     }
+    
+//     let test = new Array(5).fill(false,0,2)
+//     console.log(test)
+//     //true인게 소수인거고 false는 소수가 아닌거임
+//     return arr.filter((v) => v === true).length   
+// }
+
+
 function solution(n){
     let arr = new Array(n+1).fill(true).fill(false,0,2)
+    
     for(let i = 2; i * i <= n; i++){
-        if(arr[i])
-            for(let j = i * i; j <= n; j = j + i){
+        for(let j = i*i; j <= n; j = j + i ){
+            if(arr[j])
                 arr[j] = false
-            }
+        }
     }
-    return arr.filter(v => v=== true).length
+    console.log(arr)
+    return arr.filter((v) => v === true).length
 }
