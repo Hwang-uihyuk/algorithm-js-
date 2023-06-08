@@ -54,20 +54,63 @@
 // }
 
 
+// function solution(numbers, target){
+//     let cnt = 0;
+//     function DFS(L, sum){
+//         if(L === numbers.length){
+//             if(target === sum) cnt++
+//             return
+                               
+//         }
+//         else{
+//             DFS(L+1, sum + numbers[L])
+//             DFS(L+1, sum - numbers[L])
+//         }
+//     }
+    
+//     DFS(0,0)
+//     return cnt;
+// }
+
+// function solution(numbers, target){
+//             var cnt = 0;
+
+//     function DFS(L, sum){
+//         if(L === numbers.length){
+//             if(sum === target){
+//                 cnt++
+//             return
+//          }
+        
+//         }
+         
+//         else{
+//             DFS(L+1, sum + numbers[L])
+//             DFS(L+1, sum - numbers[L])
+//         }
+//     }
+//     DFS(0,0)
+   
+//     return cnt
+// }
+
 function solution(numbers, target){
-    let cnt = 0;
+    let answer = 0
     function DFS(L, sum){
         if(L === numbers.length){
-            if(target === sum) cnt++
-            return
-                               
+            if(target === sum){
+                answer ++; 
+                return
+            }                
         }
         else{
             DFS(L+1, sum + numbers[L])
             DFS(L+1, sum - numbers[L])
-        }
+        }                
     }
-    
     DFS(0,0)
-    return cnt;
+    
+    return answer
 }
+
+
